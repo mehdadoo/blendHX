@@ -38,9 +38,9 @@ class MeshRendererPanel extends Panel
 	override public function update()
 	{
 		var meshRenderer:MeshRenderer = cast component;
-		
-		mesh_input.value     = model.assets.getSourceURL( meshRenderer.mesh_id );
-		material_input.value = model.assets.getSourceURL( meshRenderer.material_id );
+			
+		mesh_input.value     = (meshRenderer.mesh     == null) ? "" : meshRenderer.mesh.sourceURL;
+		material_input.value = (meshRenderer.material == null) ? "" : meshRenderer.material.sourceURL;
 	}
 	
 	override private function updateModel() 

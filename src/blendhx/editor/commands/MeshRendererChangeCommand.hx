@@ -13,13 +13,10 @@ class MeshRendererChangeCommand extends Command
 		var meshRendererEvent:MeshRendererEvent = cast event;
 		var meshRenderer:MeshRenderer = meshRendererEvent.meshRenderer;
 		
-		meshRenderer.mesh_id = meshRendererEvent.mesh_id;
-		meshRenderer.material_id = meshRendererEvent.material_id;
-		
-		var material:Material = model.assets.get( Assets.MATERIAL, meshRenderer.material_id );
+		var material:Material = model.assets.get( Assets.MATERIAL, meshRendererEvent.material_id );
 		if(material != null)
 			meshRenderer.material = material;
-		meshRenderer.mesh = model.assets.get( Assets.MESH, meshRenderer.mesh_id );
+		meshRenderer.mesh = model.assets.get( Assets.MESH, meshRendererEvent.mesh_id );
 		
 		super.execute();
 	}

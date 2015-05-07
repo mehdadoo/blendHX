@@ -6,11 +6,8 @@ import blendhx.engine.assets.Mesh;
 
 class MeshRenderer extends Component
 {
-	public var material:Material;
-	public var mesh:Mesh;
-	
-	public var material_id:UInt = 0;
-	public var mesh_id:UInt = 0;
+	public var material:Material = null;
+	public var mesh:Mesh = null;
 	
 	public function new()
 	{
@@ -22,8 +19,6 @@ class MeshRenderer extends Component
 		var copy:MeshRenderer = new MeshRenderer();
 		copy.enabled = enabled;
 		copy.name = name;
-		copy.material_id = material_id;
-		copy.mesh_id = mesh_id;
 		copy.material = material;
 		copy.mesh = mesh;
 		

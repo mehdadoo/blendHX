@@ -42,9 +42,7 @@ class GridFloor extends Entity
 		
 		meshRenderer = new MeshRenderer();
 		meshRenderer.material    = material;
-		meshRenderer.material_id = material.id;
 		meshRenderer.mesh    = mesh;
-		meshRenderer.mesh_id = mesh.id;
 		
 		addChild(  meshRenderer );
 	}
