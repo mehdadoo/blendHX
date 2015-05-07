@@ -1,0 +1,1 @@
+haxe scripts.hxml

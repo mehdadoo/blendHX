@@ -1,0 +1,1 @@
+adt -package -tsa none -keystore blendhx.p12 -storetype PKCS12 -target native blendHX.exe descriptor.xml blendHX.swf icons apps templates

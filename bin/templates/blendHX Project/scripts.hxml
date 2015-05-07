@@ -1,0 +1,18 @@
+#sources
+-cp source
+-cp include
+
+#libs
+-lib format
+-swf-lib AS3Classes.swc
+
+#extra compiler configurations
+-debug
+-dce std
+
+#compile target
+-main UserScripts
+-swf-version 12
+-swf cashe/scripts.swf
+--macro include("scripts")
+--macro include("shaders")

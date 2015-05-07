@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<application 
+	xmlns="http://ns.adobe.com/air/application/16.0"
+	minimumPatchLevel="0">
+<!-- AIR Application Descriptor File. See http://www.adobe.com/go/learn_air_1.0_application_descriptor_en. -->
+	<id>blendHX</id>
+	<name>
+		<text xml:lang="en">blendHX</text>
+	</name>
+        <versionNumber>0.506</versionNumber>
+        <versionLabel>0.506</versionLabel>
+	<filename>blendHX</filename>
+	<description/>
+	<copyright>GPL Open Source</copyright>
+	<initialWindow>
+		<content>blendHX.swf</content>
+		<title>blendHX</title>
+		<systemChrome>standard</systemChrome>
+		<transparent>false</transparent>
+		<visible>true</visible>
+		<minimizable>true</minimizable>
+		<maximizable>true</maximizable>
+		<resizable>true</resizable>
+		<renderMode>gpu</renderMode>
+		<width>1200</width>
+		<height>720</height>
+		<x>100</x>
+		<y>100</y>
+		<minSize>900 600</minSize>
+
+	</initialWindow>
+	<installFolder>blendHX</installFolder>
+	<programMenuFolder>blendHX</programMenuFolder>
+	<icon>
+		<image16x16>icons/16.png</image16x16>
+		<image32x32>icons/32.png</image32x32>
+		<image48x48>icons/48.png</image48x48>
+		<image128x128>icons/128.png</image128x128>
+	</icon>
+	<customUpdateUI>false</customUpdateUI>
+	<allowBrowserInvocation>false</allowBrowserInvocation>
+	<supportedProfiles>extendedDesktop</supportedProfiles>
+</application>
