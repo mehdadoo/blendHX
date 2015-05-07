@@ -1,0 +1,295 @@
+{
+     "type" : 2
+    ,"target" : null
+    ,"name" : "\\blendHX-dev"
+    ,"main" : "compile.hxml"
+    ,"projectPackage" : null
+    ,"company" : null
+    ,"license" : null
+    ,"url" : null
+    ,"targetData" : [
+
+    ]
+    ,"files" : [
+         {
+             "path" : "src\\blendhx\\editor\\uicomponents\\NumberInput.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 43
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\uicomponents\\Button.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 15
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\uicomponents\\ImageButton.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 29
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\uicomponents\\TextInput.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 29
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\uicomponents\\ObjectInput.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 31
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\uicomponents\\Label.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 12
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\uicomponents\\UIElement.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 99
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\uicomponents\\Checkbox.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 60
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\uiComponents\\UIComponent.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 26
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\ui\\panels\\MyPanel.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 4
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\ui\\components\\IUIComponentContainer.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 3
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\ui\\panels\\RemoveButton.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 34
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\ui\\panels\\IUIComponentContainer.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 3
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\ui\\components\\UIComponentContainer.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 9
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\ui\\components\\ControlBase.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 0
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\ui\\components\\NumberInput.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 36
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\ui\\components\\ObjectInput.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 106
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\commands\\Reciever.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 0
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\commands\\SimpleCommand.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 10
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\commands\\NewComponentReciever.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 14
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\events\\HierarchyItemEvent.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 4
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\commands\\SelectEntityReciever.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 8
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\ui\\ApplicationUI.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 40
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\Editor.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 48
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\ui\\panels\\ConsolePanel.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 54
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\utils\\ExtendedTextField.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 13
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\AssetsCasheModifier.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 110
+        }
+        ,{
+             "path" : "c:\\Users\\User\\AppData\\Local\\HIDE\\.HIDE\\settings.json"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 2
+        }
+        ,{
+             "path" : "to do.txt"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 18
+        }
+        ,{
+             "path" : "src\\blendhx\\editor\\mvc\\EditorModel.hx"
+            ,"useTabs" : true
+            ,"indentSize" : 4
+            ,"foldedRegions" : [
+
+            ]
+            ,"activeLine" : 21
+        }
+    ]
+    ,"activeFile" : "src\\blendhx\\editor\\mvc\\EditorModel.hx"
+    ,"openFLTarget" : null
+    ,"openFLBuildMode" : "Debug"
+    ,"runActionType" : 2
+    ,"runActionText" : "adl.exe bin\\descriptor.xml -profile extendedDesktop"
+    ,"buildActionCommand" : null
+    ,"hiddenItems" : [
+
+    ]
+    ,"showHiddenItems" : false
+}
