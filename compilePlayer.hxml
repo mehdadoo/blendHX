@@ -1,0 +1,22 @@
+#integrate files to classpath
+-cp src
+
+#this class wil be used as entry point for your app.
+-main Main
+
+
+#Libraries
+-lib format
+#-lib air3
+-swf-lib lib/AS3Classes.swc
+
+#dead code elimination : remove unused code
+-dce no
+
+-D editor false
+-D advanced-telemetry
+
+#Flash target
+-swf bin/templates/player.swf
+-swf-version 12
+-swf-header 1200:700:60:383838

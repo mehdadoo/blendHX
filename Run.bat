@@ -1,0 +1,1 @@
+adl.exe bin\descriptor.xml -profile extendedDesktop
