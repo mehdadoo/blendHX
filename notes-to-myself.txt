@@ -1,3 +1,5 @@
+﻿Notes for myself:
+
 beta v0506
 ---------------------------------
 ✓ Load IMAP error : Registered All loaded class aliases, seemed EventDispatcher event Map list was the problem. The list of classes to be minimized later. 
