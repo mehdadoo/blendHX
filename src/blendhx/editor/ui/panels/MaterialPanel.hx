@@ -24,11 +24,6 @@ class MaterialPanel extends Panel
 	}
 	
 	
-	override private function initialize()
-	{
-		super.initialize();
-	}
-	
 	override public function update()
 	{
 		var fileItem:FileItem = model.selectedFileItem;
