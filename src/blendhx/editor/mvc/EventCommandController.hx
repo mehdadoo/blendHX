@@ -55,6 +55,9 @@ class EventCommandController implements IController
 				
 			case TransformEvent.CHANGE:
 				command = TransformChangeCommand;
+			
+			case SoundEvent.CHANGE:
+				command = SoundChangeCommand;
 				
 			case CameraEvent.CHANGE:
 				command = CameraChangeCommand;
@@ -98,6 +101,9 @@ class EventCommandController implements IController
 			case AssetsEvent.IMPORT_TEXTURE:
 				command = AssetsImportTextureCommand;
 			
+			case AssetsEvent.IMPORT_SOUND:
+				command = AssetsImportSoundCommand;
+				
 			case ProjectEvent.REQUEST_LOAD_PROJECT:
 				command = ProjectLoadCommand;
 				

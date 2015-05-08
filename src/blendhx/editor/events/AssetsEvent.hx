@@ -18,7 +18,7 @@ class AssetsEvent extends DisposableEvent
 	
 	public static inline var IMPORT_MESH   :String = "Assets import mesh";
 	public static inline var IMPORT_TEXTURE:String = "Assets import texture";
-	
+	public static inline var IMPORT_SOUND   :String = "Assets import sound";
 
 	public var fileItem:FileItem;
 	public var fileName:String;
