@@ -37,8 +37,8 @@ Known issues:
 property panels dispatch update model twice it seems, check
 Transform component should be revised to something standard, or simply make sure it is not made-up now. Transform supports only one level of parent to translate the position
 Command undo/redo might cause a problem when another commands is added in between
-Panels missbehvase, change the sound asset and see 
 Camera does not resize itself unless the editor is resized once
+On play/edit mode and load entities are initialized/uninitialized so many times, why?!
 
 
 v1

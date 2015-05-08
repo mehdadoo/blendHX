@@ -7,10 +7,10 @@ import blendhx.engine.events.EventDispatcher;
 class Component extends EventDispatcher implements IComponent
 {
 	public var transform:Transform;
-	public var enabled:Bool = true;
 	
 	@:isVar public var name(get, set):String = "Component";
 	@:isVar public var parent(get, set):IComposite;
+	@:isVar public var enabled(get, set):Bool = true;
 	
 	public function new( name:String = null )
 	{
@@ -48,6 +48,23 @@ class Component extends EventDispatcher implements IComponent
 		name = null;
 		parent = null;
 		transform = null;
+	}
+	
+	public function get_enabled():Bool
+	{
+		return enabled;
+	}
+	
+	public function set_enabled(param:Bool):Bool
+	{
+		enabled = param;
+
+		if(enabled)
+			initialize();
+		else
+			uninitialize();
+		
+		return param;
 	}
 	
 	public function get_name():String

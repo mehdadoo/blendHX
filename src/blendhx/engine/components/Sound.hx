@@ -6,11 +6,19 @@ import flash.events.Event;
 import flash.media.SoundChannel;
 import flash.media.SoundTransform;
 	
+enum SoundStatus 
+{
+  Pause;
+  Stop;
+  Play;
+}
+
 class Sound extends Component
 {
 	private var sound:flash.media.Sound;
 	private var soundChannel:SoundChannel;
 	private var pausePosition:Float = 0;
+	private var soundStatus:SoundStatus;
 	
 	public var soundAsset:blendhx.engine.assets.Sound;
 	
@@ -22,6 +30,7 @@ class Sound extends Component
 	public function new()
 	{
 		super( "Sound" );
+		soundStatus = SoundStatus.Stop;
 	}
 	
 	override public function dispose()
@@ -53,6 +62,24 @@ class Sound extends Component
 		if( playOnAwake )
 			play();
 	}
+	
+	override public function initialize()
+	{
+		if( soundStatus == SoundStatus.Play )
+			play();
+		super.initialize();
+	}
+	
+	override public function uninitialize()
+	{
+		if( soundStatus == SoundStatus.Play )
+		{
+			pause();
+			soundStatus = SoundStatus.Play;
+		}
+		super.uninitialize();
+	}
+	
 	override public function clone():IComponent
 	{
 		var copy:Sound = new Sound();
@@ -71,7 +98,9 @@ class Sound extends Component
 	{
 		if(soundChannel !=null )
 			return;
-			
+		
+		soundStatus = SoundStatus.Play;
+		
 		soundChannel = sound.play( pausePosition );
 		soundChannel.addEventListener( Event.SOUND_COMPLETE, soundCompleteHandler );
 	}
@@ -79,7 +108,9 @@ class Sound extends Component
 	{
 		if( soundChannel == null)
 			return;
-			
+		
+		soundStatus = SoundStatus.Pause;
+		
 		pausePosition = soundChannel.position;
 		soundChannel.stop();
 		soundChannel.removeEventListener( Event.SOUND_COMPLETE, soundCompleteHandler );
@@ -89,7 +120,9 @@ class Sound extends Component
 	{
 		if( soundChannel == null)
 			return;
-			
+		
+		soundStatus = SoundStatus.Stop;
+		
 		pausePosition = 0;
 		soundChannel.stop();
 		soundChannel.removeEventListener( Event.SOUND_COMPLETE, soundCompleteHandler );

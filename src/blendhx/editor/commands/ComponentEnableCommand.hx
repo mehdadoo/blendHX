@@ -20,7 +20,7 @@ class ComponentEnableCommand extends CommandWithUndo
 	{
 		var component:IComponent = values.get("component");
 		component.enabled = !component.enabled;
-		
+			
 		model.selectedEntity = model.selectedEntity;
 		
 		super.undo();

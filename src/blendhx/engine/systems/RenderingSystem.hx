@@ -110,7 +110,6 @@ class RenderingSystem extends EventDispatcher implements IRenderingSystem
     		mesh = meshRenderer.mesh;
 		
 			//if there are no valid mesh in the meshRenderer, or disabled meshRenderer skip this meshRenderer
-    		if (meshRenderer.enabled == false)  continue;
     		if (mesh == null) continue;
 		
 		
