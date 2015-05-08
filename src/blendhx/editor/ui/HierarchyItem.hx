@@ -28,10 +28,12 @@ import flash.geom.Matrix;
 class HierarchyItem extends UICompositeView implements IDragable
 {
 	public static var Images:BitmapData = new blendhx.editor.ui.embeds.Images.HierarchyImages(0, 0);
-	public static var MESH:UInt = 32;
+	
 	public static var TRANSFORM:UInt = 0;
 	public static var LAMP:UInt = 16;
+	public static var MESH:UInt = 32;
 	public static var CAMERA:UInt = 48;
+	public static var SOUND:UInt = 64;
 	
 	private var label:ExtendedTextField;
 	private var depth : UInt = 0;
@@ -199,6 +201,8 @@ class HierarchyItem extends UICompositeView implements IDragable
 				type = CAMERA;
 			case "[object MeshRenderer]":
 				type = MESH;
+			case "[object Sound]":
+				type = SOUND;
 			default:
 				type = TRANSFORM;
 		}
@@ -353,7 +357,7 @@ class HierarchyItem extends UICompositeView implements IDragable
 		}
 		
 		label.x     = padding + (depth * padding);
-		label.width = _width - label.x;
+		label.width = _width - label.x - padding;
 
 		repositionUIComponentsVertically();
 

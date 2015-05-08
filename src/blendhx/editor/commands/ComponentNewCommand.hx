@@ -18,6 +18,8 @@ class ComponentNewCommand extends CommandWithUndo
 				component = new Camera();
 			case "MeshRenderer":
 				component = new MeshRenderer();
+			case "Sound":
+				component = new Sound();
 			default:
 			{
 				var id:UInt = model.assets.getID( componentEvent.sourceURL );

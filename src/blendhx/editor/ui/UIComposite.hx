@@ -20,12 +20,16 @@ class UIComposite extends UIComponent
 	
 	public function removeUIComponents()
 	{
-		for(uiComponent in uiComponents)
+		//n is used for reverse array iteration!
+		var n:Int = uiComponents.length - 1;
+
+		for (i in 0 ... uiComponents.length) 
 		{
-			removeChild(uiComponent);
-			uiComponent.dispose();
+			removeChild(uiComponents[n]);
+			uiComponents[n].dispose();
+			n--;
 		}
-			
+		
 		uiComponents = [];
 	}
 	

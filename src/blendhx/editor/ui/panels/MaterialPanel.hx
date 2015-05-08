@@ -6,7 +6,7 @@ import blendhx.engine.assets.Material;
 import blendhx.editor.helpers.Color;
 import blendhx.editor.ui.controls.*;
 import blendhx.editor.events.MaterialEvent;
-
+import blendhx.editor.helpers.ObjectType;
 
 import hxsl.Shader;
 
@@ -93,7 +93,7 @@ class MaterialPanel extends Panel
 		var input:ControlBase;
 		
 		new Label( "Shader:" , 30, null, this);
-		shader_control = new ObjectInput( material.shaderURL, 50, updateShader, this, 1, 1, ObjectInput.SCRIPT);
+		shader_control = new ObjectInput( material.shaderURL, 50, updateShader, this, 1, 1, ObjectType.SCRIPT);
 
 		for (i in 0...length)
 		{
@@ -104,7 +104,7 @@ class MaterialPanel extends Panel
 				case "Float":
 					input = new NumberInput( editorProperties[i*2] , input_y, updateModel, this, 2, 2, NumberInput.ROUND_BOTH);
 				case "Texture":
-					input = new ObjectInput( "textures/defaultTexture.png" ,input_y+=20, updateModel, this, 1, 1, ControlBase.ROUND_BOTH,  ObjectInput.IMAGE);
+					input = new ObjectInput( "textures/defaultTexture.png" ,input_y+=20, updateModel, this, 1, 1, ControlBase.ROUND_BOTH,  ObjectType.TEXTURE);
 				case "Color":
 					input = new TextInput( "0xffeeee", input_y, updateModel, this, 2, 2);
 				default:

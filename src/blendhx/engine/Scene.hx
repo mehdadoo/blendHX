@@ -69,8 +69,10 @@ class Scene extends Entity
 		if(entities != null)
 		{
 			removeChild(entities);
+			
 			if(value == null)
 				entities.dispose();
+
 			entities = null;
 			meshRenderers = [];
 			cameras = [];

@@ -8,7 +8,7 @@ import blendhx.editor.ui.controls.ControlBase;
 import blendhx.editor.ui.controls.Button;
 import blendhx.editor.ui.controls.NumberInput;
 import blendhx.editor.ui.controls.ObjectInput;
-
+import blendhx.editor.helpers.ObjectType;
 
 
 import hxsl.Shader;
@@ -27,10 +27,10 @@ class MeshRendererPanel extends Panel
 	override private function initialize()
 	{
 		new Label( "Mesh File" , 30, null, this, 1, 1);
-		mesh_input = new ObjectInput( "Mesh"    ,50, null, this, 1, 1, ControlBase.ROUND_BOTH,  ObjectInput.MESH );
+		mesh_input = new ObjectInput( "Mesh"    ,50, null, this, 1, 1, ControlBase.ROUND_BOTH,  ObjectType.MESH );
 		
 		new Label("Material File", 70, null, this, 1, 1);
-		material_input = new ObjectInput( "Material"    ,90, null, this, 1, 1, ControlBase.ROUND_BOTH,  ObjectInput.MATERIAL );
+		material_input = new ObjectInput( "Material"    ,90, null, this, 1, 1, ControlBase.ROUND_BOTH,  ObjectType.MATERIAL );
 		
 		new Button( "Reload Renderer", 120, updateModel, this);
 	}

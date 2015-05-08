@@ -6,7 +6,7 @@ class ObjectType
 	public static var OTHERS:UInt = 1;
 	public static var TEXTURE:UInt = 2;
 	public static var SCRIPT:UInt = 3;
-	public static var AUDIO:UInt = 4;
+	public static var SOUND:UInt = 4;
 	public static var FOLDER:UInt = 5;
 	public static var BACK:UInt = 6;
 	public static var AS:UInt = 7;
@@ -35,7 +35,7 @@ class ObjectType
 			case "as":
 				return SCRIPT;
 			case "mp3":
-				return AUDIO;
+				return SOUND;
 			case "mat":
 				return MATERIAL;
 			default:

@@ -13,8 +13,6 @@ class ComponentEnableCommand extends CommandWithUndo
 		values.set("component", component);
 		component.enabled = !component.enabled;
 		
-		
-		
 		super.execute();
 	}
 	

@@ -35,9 +35,10 @@ Known issues:
 ! rename texture is not reflected in a material
 ! Context3D un-recoverably lost
 property panels dispatch update model twice it seems, check
-Transform component should be revised to something standard, or simply make sure it is not made-up now. Transform supprts only one level of parent to translate the position
+Transform component should be revised to something standard, or simply make sure it is not made-up now. Transform supports only one level of parent to translate the position
 Command undo/redo might cause a problem when another commands is added in between
-
+Panels missbehvase, change the sound asset and see 
+Camera does not resize itself unless the editor is resized once
 
 
 v1

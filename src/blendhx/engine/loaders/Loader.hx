@@ -47,8 +47,6 @@ class Loader extends EventDispatcher implements ILoader
 	
 	private function urlLoaderIOError(e:IOErrorEvent):Void
 	{
-		
-		
 		cleanupUrlLoader();
 		
 		var event:Event = new Event( Event.ERROR ); 
@@ -61,6 +59,7 @@ class Loader extends EventDispatcher implements ILoader
 		bytes.position = 0;
 		onComplete();
 	}
+	
 	private function onComplete()
 	{
 		cleanupUrlLoader();

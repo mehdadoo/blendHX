@@ -6,7 +6,7 @@ import blendhx.engine.components.Script;
 
 import blendhx.editor.ui.controls.*;
 import blendhx.editor.events.ScriptEvent;
-
+import blendhx.editor.helpers.ObjectType;
 
 class ScriptComponentPanel extends Panel
 {
@@ -128,7 +128,7 @@ class ScriptComponentPanel extends Panel
 				case "Float":
 					input = new NumberInput(componentProperties[i*2] , input_y, updateModel, this, 2, 2, NumberInput.ROUND_BOTH);
 				case "Entity":
-					input = new ObjectInput( componentProperties[i*2],input_y, updateModel, this, 2, 2, ControlBase.ROUND_BOTH,  ObjectInput.ENTITY);
+					input = new ObjectInput( componentProperties[i*2],input_y, updateModel, this, 2, 2, ControlBase.ROUND_BOTH,  ObjectType.ENTITY);
 				case "Color":
 					input = new TextInput( "0xffffff", input_y, updateModel, this, 2, 2);
 				case "String":

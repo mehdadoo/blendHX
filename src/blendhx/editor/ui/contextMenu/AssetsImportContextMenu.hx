@@ -18,6 +18,8 @@ class AssetsImportContextMenu extends ContextMenu
 							  ControlBase.ROUND_NONE, ImageButton.MESH);
 		new ContextMenuButton("Texture     (.png)", 0, importTexture, this,1 ,1 ,
 							  ControlBase.ROUND_NONE, ImageButton.TEXTURE);
+		new ContextMenuButton("Sound       (.mp3)", 0, importSound, this,1 ,1 ,
+							  ControlBase.ROUND_NONE, ImageButton.SOUND);
 		addUIComponent( new Seperator() );
 	}
 	
@@ -33,6 +35,15 @@ class AssetsImportContextMenu extends ContextMenu
 	private function importTexture():Void
 	{
 		var e:AssetsEvent = new AssetsEvent(AssetsEvent.IMPORT_TEXTURE);
+		dispatchEvent( e );
+		//e.dispose();
+		
+		dispose();
+	}
+	
+	private function importSound():Void
+	{
+		var e:AssetsEvent = new AssetsEvent(AssetsEvent.IMPORT_SOUND);
 		dispatchEvent( e );
 		//e.dispose();
 		

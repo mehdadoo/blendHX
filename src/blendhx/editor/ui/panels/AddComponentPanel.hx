@@ -8,6 +8,7 @@ import blendhx.editor.ui.controls.Label;
 
 import blendhx.editor.events.ComponentEvent;
 import blendhx.editor.events.HierarchyEvent;
+import blendhx.editor.helpers.ObjectType;
 
 class AddComponentPanel extends Panel
 {
@@ -22,7 +23,7 @@ class AddComponentPanel extends Panel
 	override private function initialize()
 	{
 		sourceURL = new ObjectInput( "Script File",30, null, this, 1, 1,
-									ControlBase.ROUND_BOTH,  ObjectInput.SCRIPT);
+									ControlBase.ROUND_BOTH,  ObjectType.SCRIPT);
 		new Button( "Add", 60, addComponent, this);
 	}
 

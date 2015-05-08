@@ -20,12 +20,14 @@ class Assets extends EventDispatcher implements IAsset
 	public inline static var MATERIAL :UInt = 1;
 	public inline static var MESH     :UInt = 2;
 	public inline static var COMPONENT:UInt = 3;
+	public inline static var SOUND    :UInt = 4;
 	
 	//repository of GPU uploaded assets
 	public var textures  :Array<IAsset> = new Array<IAsset>();
 	public var materials :Array<IAsset> = new Array<IAsset>();
 	public var meshes    :Array<IAsset> = new Array<IAsset>();
 	public var components:Array<IAsset> = new Array<IAsset>();
+	public var sounds    :Array<IAsset> = new Array<IAsset>();
 	
 	private var assetsArray:Array<Array<IAsset>>;
 	
@@ -34,7 +36,7 @@ class Assets extends EventDispatcher implements IAsset
 
 	public function new():Void
 	{	
-		assetsArray = [textures, materials, meshes, components];
+		assetsArray = [textures, materials, meshes, components, sounds];
 		scripts = new Scripts();
 		meshes.push( new GridFloorMesh() );
 		

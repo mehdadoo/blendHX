@@ -16,13 +16,13 @@ class Script extends Component
 	//calls every frame
 	override public function update():Void
 	{
-		transform.rotationY += speed;
+			transform.rotationY += speed;
 	}
 	
 	//called when the parent Entity is destroyed
 	override public function dispose():Void
 	{
-		//base class dispose call once after your own clean up
+		//base class destroy call once after your own clean up
 		super.dispose();
 	}
 }

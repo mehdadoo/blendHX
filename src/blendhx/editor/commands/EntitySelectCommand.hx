@@ -13,6 +13,7 @@ class EntitySelectCommand extends CommandWithUndo
 		var hierarchyEvent:HierarchyEvent = cast event;
 		
 		values.set("selectedEntity", model.selectedEntity);
+		
 		model.selectedEntity = hierarchyEvent.entity;
 			
 		super.execute();

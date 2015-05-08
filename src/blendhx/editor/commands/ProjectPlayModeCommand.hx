@@ -26,7 +26,7 @@ class ProjectPlayModeCommand extends Command
 		model.playMode = true;
 		
 		model.selectedEntity = model.entities;
-		model.entities.initialize();
+		//model.entities.initialize();
 		
 		
 		super.execute();

@@ -35,6 +35,7 @@ class Component extends EventDispatcher implements IComponent
 	public function clone():IComponent
 	{ 
 		return null;
+		
 	}
 	
 	override public function dispose()

@@ -30,6 +30,7 @@ class Utils
 		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.assets.Material", blendhx.engine.assets.Material);
 		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.assets.Scripts", blendhx.engine.assets.Scripts);
 		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.assets.Assets", blendhx.engine.assets.Assets);
+		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.assets.Sound", blendhx.engine.assets.Sound);
 		
 		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.components.IComponent", blendhx.engine.components.IComponent);
 		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.components.IComposite", blendhx.engine.components.IComposite);
@@ -39,6 +40,7 @@ class Utils
 		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.components.Camera", blendhx.engine.components.Camera);
 		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.components.MeshRenderer", blendhx.engine.components.MeshRenderer);
 		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.components.Script", blendhx.engine.components.Script);
+		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.components.Sound", blendhx.engine.components.Sound);
 		
 		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.presets.GridFloorMesh", blendhx.engine.presets.GridFloorMesh);
 	}

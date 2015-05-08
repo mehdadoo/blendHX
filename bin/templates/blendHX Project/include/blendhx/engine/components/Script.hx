@@ -22,6 +22,9 @@ class Script extends Component
 	
 	override public function update()
 	{
+		if( !enabled )
+			return;
+
 		//remove this component and replace it with an actual script component
 		var scriptAsset:blendhx.engine.assets.Script = cast asset;
 		var component:IComponent = scriptAsset.createInstance( properties );
@@ -31,13 +34,15 @@ class Script extends Component
 		if(component!=null)
 			entity.addChild( component );
 			
-		this.dispose();
+		this.dispose();  
 	}
 	
 	override public function clone():IComponent
 	{
 		var copy:Script = new Script( asset );
 		copy.properties = properties;
+		copy.enabled = enabled;
+		copy.name = name;
 		
 		return copy;
 	}

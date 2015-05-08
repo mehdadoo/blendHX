@@ -28,6 +28,7 @@ class EntityContextMenu extends ContextMenu
 		
 		new ContextMenuButton("Add Camera", 0, addCamera, this);
 		new ContextMenuButton("Add MeshRenderer", 0, addMeshRenderer, this);
+		new ContextMenuButton("Add Sound", 0, addSound, this);
 		
 		addUIComponent( new Seperator() );
 			
@@ -76,6 +77,16 @@ class EntityContextMenu extends ContextMenu
 	{
 		var e:ComponentEvent = new ComponentEvent(ComponentEvent.NEW);
 		e.sourceURL = "MeshRenderer";
+		dispatchEvent(e);
+		//e.dispose();
+		
+		dispose();
+	}
+	
+	private function addSound()
+	{
+		var e:ComponentEvent = new ComponentEvent(ComponentEvent.NEW);
+		e.sourceURL = "Sound";
 		dispatchEvent(e);
 		//e.dispose();
 		

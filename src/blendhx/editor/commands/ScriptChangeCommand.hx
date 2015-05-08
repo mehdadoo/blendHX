@@ -22,7 +22,6 @@ class ScriptChangeCommand extends CommandWithUndo
 			script.properties.set( scriptEvent.componentProperties[i*2], scriptEvent.values[i] );
 		}
 		
-		model.selectedFileItem = model.selectedFileItem;
 		
 		super.execute();
 	}

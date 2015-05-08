@@ -46,13 +46,20 @@ class Entity extends Component implements IComposite
 	{
 		super.dispose();
 		
-		if(children != null)
-			for (child in children)
-				child.dispose();
+		if(children == null)
+			return;
+		
+		//n is used for reverse array iteration!
+		var n:Int = children.length - 1;
+
+		for (i in 0 ... children.length) 
+		{
+			if( children[n] != null)
+				children[n].dispose();
+			n--;
+		}
 		
 		children = null;
-		
-		
 	}
 	
 	override public function clone():IComponent

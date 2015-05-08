@@ -76,9 +76,10 @@ class MVCEditor extends UIComposite
 		stage.addEventListener(AssetsEvent.CREATE_HAXE_FILE   ,handleEvents );
 		stage.addEventListener(AssetsEvent.CREATE_NEW_FOLDER  ,handleEvents );
 		stage.addEventListener(AssetsEvent.CREATE_MATERIAL    ,handleEvents );
-		stage.addEventListener(AssetsEvent.IMPORT_TEXTURE     ,handleEvents );
 		stage.addEventListener(AssetsEvent.CREATE_SHADER      ,handleEvents );
+		stage.addEventListener(AssetsEvent.IMPORT_TEXTURE     ,handleEvents );
 		stage.addEventListener(AssetsEvent.IMPORT_MESH        ,handleEvents );
+		stage.addEventListener(AssetsEvent.IMPORT_SOUND       ,handleEvents );
 		stage.addEventListener(AssetsEvent.SELECT             ,handleEvents );
 		stage.addEventListener(AssetsEvent.RENAME             ,handleEvents );
 		stage.addEventListener(AssetsEvent.DELETE             ,handleEvents );
@@ -106,6 +107,7 @@ class MVCEditor extends UIComposite
 		stage.addEventListener(ScriptEvent.CHANGE       ,handleEvents );
 		stage.addEventListener(MeshRendererEvent.CHANGE ,handleEvents );
 		stage.addEventListener(TransformEvent.CHANGE    ,handleEvents );
+		stage.addEventListener(SoundEvent.CHANGE        ,handleEvents );
 		stage.addEventListener(MaterialEvent.CHANGE     ,handleEvents );
 		stage.addEventListener(CameraEvent.CHANGE       ,handleEvents );
 		

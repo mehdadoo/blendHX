@@ -31,14 +31,15 @@ class ImageButton extends Button
 	public static var TEXTURE:UInt = 18;
 	public static var WEBPAGE:UInt = 19;
 	public static var FLASH:UInt = 20;
-	public static var NONE:UInt = 21;
+	public static var SOUND:UInt = 21;
+	public static var NONE:UInt = 22;
 	
 	public static var Images:BitmapData = new blendhx.editor.ui.embeds.Images.ButtonImages(0, 0);
 	
 	private var icon:Sprite;
 
 	public function new(text:String, y:Float, onChange:Void->Void, panel:UIComposite,
-						column:UInt=1, totalColumns:UInt=1, rounding:Array<Float> = null, iconType:UInt = 21) 
+						column:UInt=1, totalColumns:UInt=1, rounding:Array<Float> = null, iconType:UInt = 22) 
 	{
 		super(text, y, onChange, panel, column, totalColumns, rounding);
 		value = text;

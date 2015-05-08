@@ -13,6 +13,7 @@ class PanelPool
 		panels.set("Transform"   , new TransformPanel()    );
 		panels.set("Camera"      , new CameraPanel()       );
 		panels.set("MeshRenderer", new MeshRendererPanel() );
+		panels.set("Sound"       , new SoundPanel()        );
 		panels.set("Material"    , new MaterialPanel()     );
 		panels.set("AddComponent", new AddComponentPanel() );
 		panels.set("AssetInfo"   , new AssetInfoPanel()    );
