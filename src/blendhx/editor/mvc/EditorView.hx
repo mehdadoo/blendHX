@@ -25,6 +25,7 @@ class EditorView extends UICompositeView
 		super();
 		
 		this.model      = model;
+		model.viewport  = viewport;
 		this.viewport   = viewport;
 
 		createDefaultSpaces();
@@ -70,8 +71,9 @@ class EditorView extends UICompositeView
 		hierarchy._height  = _height - console._height - menu._height;
 
 		viewport.width = _width - hierarchy._width - properties._width;
-		viewport.height = _height - console._height;
+		viewport.height = _height - console._height - menu._height;
 		viewport.x = hierarchy._width;
+		viewport.y = menu._height;
 		
 		super.resize();
 	}

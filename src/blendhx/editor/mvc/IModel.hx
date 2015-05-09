@@ -3,6 +3,7 @@ package blendhx.editor.mvc;
 
 import blendhx.engine.components.IComposite;
 import blendhx.engine.assets.Assets;
+import blendhx.engine.Viewport;
 import blendhx.engine.Scene;
 import blendhx.editor.helpers.IDragable;
 import blendhx.editor.ui.FileItem;
@@ -21,9 +22,11 @@ interface IModel extends IEventDispatcher
 	@:isVar public var entities(get, set):IComposite;
 	@:isVar public var assets (get, set):Assets;
 	@:isVar public var scene  (get, set):Scene;
+	public var viewport :Viewport;
 
 	public var playMode:Bool;
 	public var savedEntities:IComposite;
+	public var editModeSelectedEntity:IComposite;
 	public var editorCamera:EditorCamera;
 	public var gridFloor:IComposite;
 	

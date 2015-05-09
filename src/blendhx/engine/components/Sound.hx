@@ -6,19 +6,14 @@ import flash.events.Event;
 import flash.media.SoundChannel;
 import flash.media.SoundTransform;
 	
-enum SoundStatus 
-{
-  Pause;
-  Stop;
-  Play;
-}
+
 
 class Sound extends Component
 {
 	private var sound:flash.media.Sound;
 	private var soundChannel:SoundChannel;
 	private var pausePosition:Float = 0;
-	private var soundStatus:SoundStatus;
+	private var soundStatus:UInt;
 	
 	public var soundAsset:blendhx.engine.assets.Sound;
 	

@@ -31,7 +31,7 @@ beta v0506
 
 
 Known issues:
-✓ ! Component enable/disable initialize/uninitialize fix (Not valid for the current small code base)
+✓ ! Component enable/disable initialize/uninitialize check with script (it works with sound atm)
 ! rename texture is not reflected in a material
 ! Context3D un-recoverably lost
 property panels dispatch update model twice it seems, check
@@ -44,6 +44,9 @@ On play/edit mode and load entities are initialized/uninitialized so many times,
 v1
 --------------------------------
 	Engine features:
+✓ sound component (3d sound is left)
+camera/redndering system frustom culling
+camera near/dar clip panes
 light component
 light shaders
 collidor component
@@ -66,7 +69,11 @@ export air
 lightmapping
 
 	Editor features:
+✓ object picking(clean up the PickController code a little bit)
+camera editor object mesh
+transform controls
 collapse in hierarchy support undo(needed really?)
+selected object highlight
 undo support Assets as much as possible
 disposed commands properly dispose the game objects removed, depending they were done or undone or redone
 command undo history should be limited, and dispose the removed commands

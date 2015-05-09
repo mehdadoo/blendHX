@@ -24,6 +24,7 @@ class MVCEditor extends UIComposite
 	private var renameView:UICompositeView;
 	private var dragController:IController;
 	private var shortcutController:IController;
+	private var pickController:IController;
 	
 	@:isVar public var scene(null, set):Scene;
 	
@@ -38,6 +39,7 @@ class MVCEditor extends UIComposite
 		renameView = new RenameView( model );
 		dragController = new DragController( model );
 		shortcutController = new ShortcutController( model );
+		pickController = new PickController( model );
 		
 		addUIComponent( view );
 		addUIComponent( renameView );
@@ -120,8 +122,15 @@ class MVCEditor extends UIComposite
 		stage.addEventListener(MouseEvent.MOUSE_DOWN, handleDragEvents);
 		stage.addEventListener(MouseEvent.MOUSE_OUT , handleDragEvents);
 		
+		stage.addEventListener(MouseEvent.RIGHT_MOUSE_DOWN, handleObjectPick);
+		
 		stage.addEventListener(KeyboardEvent.KEY_DOWN , handleKeyboardEvents);
 		
+	}
+	
+	private function handleObjectPick(e:flash.events.Event)
+	{
+		pickController.handleEvent( e );
 	}
 	
 	private function handleKeyboardEvents(e:flash.events.Event)

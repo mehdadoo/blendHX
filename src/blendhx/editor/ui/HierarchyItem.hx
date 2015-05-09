@@ -107,12 +107,12 @@ class HierarchyItem extends UICompositeView implements IDragable
 		var e:HierarchyEvent = new HierarchyEvent(HierarchyEvent.SELECT);
 		e.entity = hierarchyItem.entity;
 		dispatchEvent(e);
-		e.dispose();
+		//e.dispose();
 		
 		e = new HierarchyEvent(HierarchyEvent.REPARENT);
 		e.entity = entity;
 		dispatchEvent(e);
-		e.dispose();
+		//e.dispose();
 	}
 	
 	//create child hierarchy items

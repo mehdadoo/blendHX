@@ -12,6 +12,8 @@ class ProjectEditModeCommand extends Command
 {
 	override public function execute():Void
 	{
+		
+		
 		model.scene.entities = null;
 		model.scene.entities = model.savedEntities;
 		
@@ -22,7 +24,7 @@ class ProjectEditModeCommand extends Command
 		
 		flash.system.System.pauseForGCIfCollectionImminent();
 		
-		model.selectedEntity = model.entities;
+		model.selectedEntity = model.editModeSelectedEntity;
 		
 		CommandWithUndo.locked = false;
 		

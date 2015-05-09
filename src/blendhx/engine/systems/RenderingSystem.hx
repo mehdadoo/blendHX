@@ -137,14 +137,6 @@ class RenderingSystem extends EventDispatcher implements IRenderingSystem
 					trace( e.message, 0xcc1111 );
 					shaderError = e.message;
 				}
-				
-				
-				
-    			/*shader.unbind(context3D);
-    			shader = fallbackShader;
-    			shader.updateMatrix(transform.getMatrix(), camera.getViewProjection());
-    			shader.bind(context3D, mesh.vertexBuffer);
-    			context3D.drawTriangles(mesh.indexBuffer);*/
     		};
 			shader.unbind(context3D);
     		

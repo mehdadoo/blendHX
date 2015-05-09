@@ -25,7 +25,9 @@ class ProjectPlayModeCommand extends Command
 		
 		model.playMode = true;
 		
+		model.editModeSelectedEntity = model.selectedEntity;
 		model.selectedEntity = model.entities;
+		
 		
 		
 		super.execute();

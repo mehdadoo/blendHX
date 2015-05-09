@@ -1,6 +1,7 @@
 package blendhx.editor.mvc;
 
 import blendhx.engine.Scene;
+import blendhx.engine.Viewport;
 import blendhx.engine.components.Camera;
 import blendhx.engine.components.IComposite;
 import blendhx.engine.events.EntityEvent;
@@ -27,9 +28,11 @@ class EditorModel extends flash.events.EventDispatcher implements IModel
 	@:isVar public var entities(get, set):IComposite;
 	@:isVar public var assets (get, set):Assets;
 	@:isVar public var scene  (get, set):Scene;
+	public var viewport :Viewport;
 	
 	public var playMode:Bool;
 	public var savedEntities:IComposite;
+	public var editModeSelectedEntity:IComposite;
 	public var editorCamera:EditorCamera;
 	public var gridFloor:IComposite;
 	
@@ -42,7 +45,7 @@ class EditorModel extends flash.events.EventDispatcher implements IModel
 	public var sourceDirectory   :File;
 	public var casheDirectory    :File;
 	public var lastSelectedObject:UInt; 
-	public var version           :String = "blendhx v0.506";
+	public var version           :String = "blendhx v0.509";
 	public var focusedControlBase:ControlBase;
 	public var dragItem          :IDragable;
 	
