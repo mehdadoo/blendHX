@@ -35,7 +35,6 @@ Known issues:
 ! rename texture is not reflected in a material
 ! Context3D un-recoverably lost
 property panels dispatch update model twice it seems, check
-Transform component should be revised to something standard, or simply make sure it is not made-up now. Transform supports only one level of parent to translate the position
 Command undo/redo might cause a problem when another commands is added in between
 Camera does not resize itself unless the editor is resized once
 On play/edit mode and load entities are initialized/uninitialized so many times, why?!
@@ -46,51 +45,55 @@ v1
 --------------------------------
 	Engine features:
 ✓ sound component (3d sound is left)
-camera/redndering system frustom culling
-camera near/dar clip panes
-camera transform wrong
 ✓ light component
-light shaders
+camera transform wrong
+transform component tools, support more than one level of parenting
+physics system
 collidor component
 rigid body component
+prefabs
+camera/redndering system frustom culling
+camera near/dar clip panes
 animation system
 animation component
-prefabs
-shadows
-physics system
-actionscript
-particle component
-particle system
 2D component
 2D renderer
-image effects
 skybox shader/assets
 export to apk
 export to ios
 export air
-lightmapping
+
 
 	Editor features:
 ✓ object picking
 ✓ camera focus object
 ✓ camera editor object mesh
-transform controls
-
-undo support Assets as much as possible
-disposed commands properly dispose the game objects removed, depending they were done or undone or redone
+✓ duplicate entity
+.blend importer
+scene shift camera navigation
+transformation gizmo work
+FileItem folder drag fileItem re-parent folder
 command undo history should be limited, and dispose the removed commands
+disposed commands properly dispose the game objects removed, depending they were done or undone or redone
 settings panel to contain:target size, fps, undo history steps
 folder rename
-FileItem folder drag fileItem re-parent folder
 TextInput character selection
+texture import panel
+animation import
+
+------------------------
+non critical features:
+actionscript
+particle component
+particle system
+shadows
+light shaders
+
+EDITOR:
+lightmapping
 Space scroll bars
 assets/hierarchy search
-scene camera navigation
-scene placement and rotation,scale,transformation tools
-✓ duplicate entity
-texture import panel
+undo support Assets as much as possible
 mesh import panel
 multi select assets, entities
-import multiple files
-.blend importer
-animation import
+scene placement and rotation,scale,transformation tools

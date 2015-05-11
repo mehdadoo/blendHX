@@ -32,10 +32,9 @@ class WireFrameShader extends Shader
 		function vertex(transformationMatrix : M44, projectionMatrix : M44) 
 		{
 			var final:Float4 = input.pos.xyzw * transformationMatrix * projectionMatrix;
-			//final.z += 0.01;
-			out = final;
 			depth = final.z;
 			vertexColorVarying = input.vertexColor;
+			out = final;
 		}
 		
 		function fragment(lineColor:Float4, lineWidth:Float2) 

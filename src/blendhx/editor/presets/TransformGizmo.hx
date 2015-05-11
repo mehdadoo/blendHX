@@ -43,6 +43,10 @@ class TransformGizmo extends Entity
 		greenShader.color = 0x00ff00;
 		blueShader.color  = 0x0000ff;
 		
+		redShader.scale   = 0.1;
+		greenShader.scale   = 0.1;
+		blueShader.scale   = 0.1;
+		
 		redMaterial.shader   = redShader;
 		greenMaterial.shader = greenShader;
 		blueMaterial.shader  = blueShader;

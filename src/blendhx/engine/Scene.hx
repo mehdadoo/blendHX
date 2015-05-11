@@ -148,7 +148,7 @@ class Scene extends Entity
 	{
 		//if the camera already exists, do not re register it
     	for (c in cameras) 
-			if (c.name == camera.name)
+			if (c == camera)
 				return;
 		
 		//the editor camera if available, should always be the first on the list

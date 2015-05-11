@@ -60,6 +60,8 @@ class Material extends EventDispatcher implements IAsset
 						value = null;
 				case "Color":
 					value = properties.get( shader.editorProperties[i*2] );
+				case "Float":
+					value = properties.get( shader.editorProperties[i*2] );
 				default:
 					value = null;
 			}

@@ -65,10 +65,10 @@ class ShortcutController implements IController
 			case Keyboard.DELETE:
 				if( model.lastSelectedObject == ObjectType.ENTITY )
 					command = new EntityDeleteCommand( model, new HierarchyEvent(HierarchyEvent.DELETE) );
-			case Keyboard.D:
+			 case Keyboard.D:
 				if( keyboardEvent.shiftKey )
 					if( model.lastSelectedObject == ObjectType.ENTITY )
-						command = new EntityDeleteCommand( model, new HierarchyEvent(HierarchyEvent.DUPLICATE) );
+						command = new EntityDuplicateCommand( model, new HierarchyEvent(HierarchyEvent.DUPLICATE) ); 
 			case Keyboard.NUMPAD_DECIMAL, Keyboard.F:
 					command = new ViewportFocusCommand( model, new HierarchyEvent(HierarchyEvent.SELECT) );
 			default:
