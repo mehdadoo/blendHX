@@ -19,11 +19,13 @@ class ShortcutController implements IController
 
 	public function handleEvent(e:Event):Void
 	{
+		if( model.focusedControlBase != null)
+			return;
+			
 		var command:ICommand = null;
 		
-
 		var keyboardEvent:KeyboardEvent = cast e;
-		
+
 		switch(keyboardEvent.keyCode)
 		{
 			case Keyboard.Z: 
@@ -63,7 +65,12 @@ class ShortcutController implements IController
 			case Keyboard.DELETE:
 				if( model.lastSelectedObject == ObjectType.ENTITY )
 					command = new EntityDeleteCommand( model, new HierarchyEvent(HierarchyEvent.DELETE) );
-				
+			case Keyboard.D:
+				if( keyboardEvent.shiftKey )
+					if( model.lastSelectedObject == ObjectType.ENTITY )
+						command = new EntityDeleteCommand( model, new HierarchyEvent(HierarchyEvent.DUPLICATE) );
+			case Keyboard.NUMPAD_DECIMAL, Keyboard.F:
+					command = new ViewportFocusCommand( model, new HierarchyEvent(HierarchyEvent.SELECT) );
 			default:
 				command = null;
 		}

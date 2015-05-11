@@ -10,6 +10,7 @@ import blendhx.engine.assets.Assets;
 
 import blendhx.editor.presets.EditorCamera;
 import blendhx.editor.presets.GridFloor;
+import blendhx.editor.presets.TransformGizmo;
 import blendhx.editor.helpers.IDragable;
 import blendhx.editor.helpers.ObjectType;
 import blendhx.editor.events.ProgressEvent;
@@ -35,6 +36,7 @@ class EditorModel extends flash.events.EventDispatcher implements IModel
 	public var editModeSelectedEntity:IComposite;
 	public var editorCamera:EditorCamera;
 	public var gridFloor:IComposite;
+	public var transformGizmo:IComposite;
 	
 	@:isVar public var selectedEntity        (get, set):IComposite;
 	@:isVar public var selectedFileItem      (get, set):FileItem;
@@ -45,7 +47,7 @@ class EditorModel extends flash.events.EventDispatcher implements IModel
 	public var sourceDirectory   :File;
 	public var casheDirectory    :File;
 	public var lastSelectedObject:UInt; 
-	public var version           :String = "blendhx v0.509";
+	public var version           :String = "blendhx v0.511";
 	public var focusedControlBase:ControlBase;
 	public var dragItem          :IDragable;
 	
@@ -53,6 +55,7 @@ class EditorModel extends flash.events.EventDispatcher implements IModel
 	{
 		this.editorCamera = new EditorCamera();
 		this.gridFloor = new GridFloor( scene.assets );
+		this.transformGizmo = new TransformGizmo( scene.assets );
 		this.scene = scene;
 		
 		super();
@@ -85,6 +88,7 @@ class EditorModel extends flash.events.EventDispatcher implements IModel
 		{
 			scene.removeChild(editorCamera);
 			scene.removeChild(gridFloor);
+			scene.removeChild(transformGizmo);
 			scene.assets.removeEventListener(ProgressEvent.PROGRESS);
 			scene.removeEventListener(EntityEvent.HIERARCHY_CHANGE);
 		}
@@ -96,8 +100,11 @@ class EditorModel extends flash.events.EventDispatcher implements IModel
 		scene.addEventListener(EntityEvent.HIERARCHY_CHANGE, onSceneHierarchyChanged);
 		scene.addChild(editorCamera);
 		gridFloor.dispose();
+		transformGizmo.dispose();
 		gridFloor = new GridFloor( scene.assets );
+		transformGizmo = new TransformGizmo(scene.assets);
 		scene.addChild(gridFloor);
+		scene.addChild(transformGizmo);
 		
 		selectedEntity = param.entities;
 		

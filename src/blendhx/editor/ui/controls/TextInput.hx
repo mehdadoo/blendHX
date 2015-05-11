@@ -133,8 +133,6 @@ class TextInput extends ControlBase
 	
 	override public function focus()
 	{
-		
-			
 		//to avoid textField right click menu to popup, add a timer to do make text selectable few moments later
 		var t:Timer = new Timer(0.1, 1);
 		t.addEventListener(TimerEvent.TIMER, setLabelToSelectable);
@@ -151,6 +149,8 @@ class TextInput extends ControlBase
 		
 		if( onChange!=null )
 			onChange();
+			
+		super.unfocus();
 	}
 	
 	public function updateValue(_)

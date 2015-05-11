@@ -14,11 +14,11 @@ class PanelPool
 		panels.set("Camera"      , new CameraPanel()       );
 		panels.set("MeshRenderer", new MeshRendererPanel() );
 		panels.set("Sound"       , new SoundPanel()        );
+		panels.set("Lamp"        , new LampPanel()        );
 		panels.set("Material"    , new MaterialPanel()     );
 		panels.set("AddComponent", new AddComponentPanel() );
 		panels.set("AssetInfo"   , new AssetInfoPanel()    );
 		panels.set("ScriptFile"  , new ScriptFilePanel()   );
-		//panels.set("Panel"       , new Panel("Unknown Panel", 200) );
 	}
 	
 	public function getPanel( name:String ):Panel

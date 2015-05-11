@@ -27,10 +27,12 @@ class SoundPanel extends Panel
 	{
 		new Label( "Sound File" , 30, null, this, 1, 1);
 		sound_input = new ObjectInput( "Sound"    ,50, updateModel, this, 1, 1, ControlBase.ROUND_BOTH,  ObjectType.SOUND );
-		playOnAwake_input = new Checkbox("Play On Awake", 80,  updateModel, this);
-		loop_input = new Checkbox("Loop", 110,  updateModel, this);
-		is2D_input = new Checkbox("2D", 140,  updateModel, this);
-		new Label( "Volume" , 170, null, this, 1, 2);
+		playOnAwake_input = new Checkbox("Play On Awake", 80,  updateModel, this, 1, 2);
+		loop_input = new Checkbox("Loop", 80,  updateModel, this, 2, 2);
+		is2D_input = new Checkbox("2D", 110,  updateModel, this, 1, 2);
+		volume_input = new NumberInput("volume" , 110, updateModel, this, 2, 2, NumberInput.ROUND_BOTH);
+		volume_input.max = 1.0;
+		volume_input.step = 0.1;
 	}
 	
 	override public function update()
@@ -45,6 +47,7 @@ class SoundPanel extends Panel
 		playOnAwake_input.value  = sound.playOnAwake;
 		loop_input.value  = sound.loop;
 		is2D_input.value  = sound.is2D;
+		volume_input.value  = sound.volume;
 	}
 	
 	override private function updateModel() 
@@ -55,6 +58,7 @@ class SoundPanel extends Panel
 		e.playOnAwake = playOnAwake_input.value;
 		e.loop = loop_input.value;
 		e.is2D = is2D_input.value;
+		e.volume = volume_input.value;
 		
 		dispatchEvent( e );
 	}

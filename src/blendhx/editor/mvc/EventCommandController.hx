@@ -25,9 +25,12 @@ class EventCommandController implements IController
 				
 			case ProjectEvent.REDO:
 				command = ProjectRedoCommand;
+			
+			case ControlBaseEvent.UN_FOCUS:
+				command = ControlBaseUnfocusCommand;
 				
 			case ControlBaseEvent.FOCUS:
-				command = ControlBaseUnfocusCommand;
+				command = ControlBaseFocusCommand;
 				
 			case HierarchyEvent.SELECT:
 				command = EntitySelectCommand;
@@ -43,6 +46,9 @@ class EventCommandController implements IController
 				
 			case HierarchyEvent.RENAME:
 				command = EntityRenameCommand;
+			
+			case HierarchyEvent.DUPLICATE:
+				command = EntityDuplicateCommand;
 				
 			case ComponentEvent.NEW:
 				command = ComponentNewCommand;
@@ -58,6 +64,9 @@ class EventCommandController implements IController
 			
 			case SoundEvent.CHANGE:
 				command = SoundChangeCommand;
+				
+			case LampEvent.CHANGE:
+				command = LampChangeCommand;
 				
 			case CameraEvent.CHANGE:
 				command = CameraChangeCommand;

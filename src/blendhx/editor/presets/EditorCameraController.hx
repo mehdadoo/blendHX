@@ -1,6 +1,7 @@
 package blendhx.editor.presets;
 
 import blendhx.engine.components.Component;
+import blendhx.engine.components.Transform;
 
 import flash.geom.Vector3D;
 import flash.ui.Keyboard;
@@ -20,6 +21,7 @@ class EditorCameraController extends Component
 	private var startX:Float=0;
 	private var startY:Float=0;
 	private var isMiddleDown:Bool;
+	private var animationTimer:Timer = new Timer(0.02, 10); 
 	
 	
 	override public function initialize()
@@ -29,7 +31,7 @@ class EditorCameraController extends Component
 		flash.Lib.current.stage.addEventListener(MouseEvent.MIDDLE_MOUSE_DOWN, oMiddleDown);
 		flash.Lib.current.stage.addEventListener(MouseEvent.MIDDLE_MOUSE_UP, oMiddleUp);
 		flash.Lib.current.stage.addEventListener(MouseEvent.MOUSE_WHEEL, onMouseWheel);
-		flash.Lib.current.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+		animationTimer.addEventListener(TimerEvent.TIMER, animationStep);
 		
 		updateMatrix();
 		
@@ -42,47 +44,33 @@ class EditorCameraController extends Component
 		flash.Lib.current.stage.removeEventListener(MouseEvent.MIDDLE_MOUSE_DOWN, oMiddleDown);
 		flash.Lib.current.stage.removeEventListener(MouseEvent.MIDDLE_MOUSE_UP, oMiddleUp);
 		flash.Lib.current.stage.removeEventListener(MouseEvent.MOUSE_WHEEL, onMouseWheel);
-		flash.Lib.current.stage.removeEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+		animationTimer.removeEventListener(TimerEvent.TIMER, animationStep);
 		
 		super.uninitialize();
 	}
-	private function onKeyDown(e:KeyboardEvent):Void
+	
+	public  function focus( targetTransform:Transform):Void
 	{
-		/*if (e.keyCode == Keyboard.NUMPAD_DECIMAL)
-		{
-			if(Selection.GetSelectedEntity() != null)
-			{
-				var targetTransform:Transform = Selection.GetSelectedEntity().transform;
-
-				easeDiffVector.x = -targetTransform.x - target.x;
-				easeDiffVector.y = -targetTransform.y - target.y;
-				easeDiffVector.z = -targetTransform.z - target.z;
-					
-				var entity:Entity = Selection.GetSelectedEntity();
-				var animationTimer:Timer = new Timer(0.02, 10);
-				animationTimer.addEventListener(TimerEvent.TIMER, animationStep);
-				animationTimer.start();
-			}
-		}*/
+		easeDiffVector.x = -targetTransform.x - target.x;
+		easeDiffVector.y = -targetTransform.y - target.y;
+		easeDiffVector.z = -targetTransform.z - target.z;
+		
+		animationTimer.start();	
 	}
 
 	
-	//we can now make the text selectable safely. if we did it earlier, a nasty system context menu would pop up on Assets panel
 	private function animationStep(e:TimerEvent)
 	{
-		/*var t:Timer = cast(e.target, Timer);
-		
-		target.x += easeDiffVector.x / t.repeatCount;
-		target.y += easeDiffVector.y / t.repeatCount;
-		target.z += easeDiffVector.z / t.repeatCount;
+		target.x += easeDiffVector.x / animationTimer.repeatCount;
+		target.y += easeDiffVector.y / animationTimer.repeatCount;
+		target.z += easeDiffVector.z / animationTimer.repeatCount;
 		updateMatrix();
 		
-		if(t.currentCount == t.repeatCount)
+		if(animationTimer.currentCount == animationTimer.repeatCount)
 		{
-			t.removeEventListener(TimerEvent.TIMER, animationStep);
-			t.stop();
-			t = null;
-		}*/
+			animationTimer.stop();
+			animationTimer.reset();
+		}
 	}
 	
 	private function onMouseWheel(e:MouseEvent):Void

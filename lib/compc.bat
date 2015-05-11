@@ -1,0 +1,1 @@
+F:\Applications\AIRSDKCompiler\bin\compc -include-sources -include-sources blendhx\editor\data -include-sources blendhx\editor\loaders com\adobe\utils -output AS3Classes.swc

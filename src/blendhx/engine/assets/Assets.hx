@@ -160,7 +160,7 @@ class Assets extends EventDispatcher implements IAsset
 				if (asset.sourceURL == sourceURL)
 					return asset.id;
 		
-		trace("Asset " +sourceURL +" not found.", 0xff6600, false);
+		//trace("Asset " +sourceURL +" not found.", 0xff6600, false);
 		
 		return 0;
 	}

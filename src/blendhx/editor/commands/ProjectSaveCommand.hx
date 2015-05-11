@@ -27,6 +27,7 @@ class ProjectSaveCommand extends Command
 		//remove the camera, and change it with a play time camera
 		scene.removeChild( model.editorCamera);
 		scene.removeChild( model.gridFloor);
+		scene.removeChild( model.transformGizmo);
 		scene.entities.initialize();
 		
 		var assets:Assets = model.assets;
@@ -57,6 +58,7 @@ class ProjectSaveCommand extends Command
 		assets.initialize();
 		scene.addChild( model.editorCamera);
 		scene.addChild( model.gridFloor);
+		scene.addChild( model.transformGizmo);
 		
 		super.execute();
 	}

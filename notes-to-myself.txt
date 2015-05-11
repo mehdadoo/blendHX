@@ -39,7 +39,8 @@ Transform component should be revised to something standard, or simply make sure
 Command undo/redo might cause a problem when another commands is added in between
 Camera does not resize itself unless the editor is resized once
 On play/edit mode and load entities are initialized/uninitialized so many times, why?!
-
+✓ collapse in hierarchy support undo(needed really?)(It does not)
+✓ selected object highlight (Gimos indicate selection)
 
 v1
 --------------------------------
@@ -47,7 +48,8 @@ v1
 ✓ sound component (3d sound is left)
 camera/redndering system frustom culling
 camera near/dar clip panes
-light component
+camera transform wrong
+✓ light component
 light shaders
 collidor component
 rigid body component
@@ -69,11 +71,11 @@ export air
 lightmapping
 
 	Editor features:
-✓ object picking(clean up the PickController code a little bit)
-camera editor object mesh
+✓ object picking
+✓ camera focus object
+✓ camera editor object mesh
 transform controls
-collapse in hierarchy support undo(needed really?)
-selected object highlight
+
 undo support Assets as much as possible
 disposed commands properly dispose the game objects removed, depending they were done or undone or redone
 command undo history should be limited, and dispose the removed commands
@@ -85,8 +87,7 @@ Space scroll bars
 assets/hierarchy search
 scene camera navigation
 scene placement and rotation,scale,transformation tools
-copy asset
-highlight selected mesh
+✓ duplicate entity
 texture import panel
 mesh import panel
 multi select assets, entities

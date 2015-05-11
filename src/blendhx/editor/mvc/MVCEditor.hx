@@ -101,6 +101,7 @@ class MVCEditor extends UIComposite
 		stage.addEventListener(HierarchyEvent.RENAME   ,handleEvents );
 		stage.addEventListener(HierarchyEvent.DELETE   ,handleEvents );
 		stage.addEventListener(HierarchyEvent.NEW      ,handleEvents );
+		stage.addEventListener(HierarchyEvent.DUPLICATE,handleEvents );
 		
 		stage.addEventListener(ComponentEvent.REMOVE   ,handleEvents );
 		stage.addEventListener(ComponentEvent.ENABLE   ,handleEvents );
@@ -110,11 +111,12 @@ class MVCEditor extends UIComposite
 		stage.addEventListener(MeshRendererEvent.CHANGE ,handleEvents );
 		stage.addEventListener(TransformEvent.CHANGE    ,handleEvents );
 		stage.addEventListener(SoundEvent.CHANGE        ,handleEvents );
+		stage.addEventListener(LampEvent.CHANGE         ,handleEvents );
 		stage.addEventListener(MaterialEvent.CHANGE     ,handleEvents );
 		stage.addEventListener(CameraEvent.CHANGE       ,handleEvents );
 		
-		stage.addEventListener(ControlBaseEvent.FOCUS     ,handleEvents );
-		
+		stage.addEventListener(ControlBaseEvent.FOCUS   ,handleEvents );
+		stage.addEventListener(ControlBaseEvent.UN_FOCUS,handleEvents );
 		
 		stage.addEventListener(HierarchyEvent.RENAME_REQUEST, handleRenameEvents);
 		stage.addEventListener(AssetsEvent.RENAME_REQUEST   , handleRenameEvents);

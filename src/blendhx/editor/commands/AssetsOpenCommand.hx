@@ -15,7 +15,7 @@ class AssetsOpenCommand extends Command
 		
 		if(model.focusedControlBase != null)
 			model.focusedControlBase.unfocus();
-			
+		
 		if ( fileItem.type == ObjectType.FOLDER )
 		{
 			model.currentAssetsDirectory = model.currentAssetsDirectory.resolvePath(fileItem.file.name);

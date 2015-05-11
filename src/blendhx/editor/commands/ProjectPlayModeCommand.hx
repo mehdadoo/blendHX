@@ -16,6 +16,7 @@ class ProjectPlayModeCommand extends Command
 		
 		model.scene.removeChild( model.editorCamera );
 		model.scene.removeChild( model.gridFloor);
+		model.scene.removeChild( model.transformGizmo);
 		
 		var original = model.scene.entities;
 		var clone:IComposite = cast model.entities.clone();
@@ -27,6 +28,7 @@ class ProjectPlayModeCommand extends Command
 		
 		model.editModeSelectedEntity = model.selectedEntity;
 		model.selectedEntity = model.entities;
+		model.transformGizmo.transform = model.selectedEntity.transform;
 		
 		
 		

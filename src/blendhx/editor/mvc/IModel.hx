@@ -12,6 +12,7 @@ import blendhx.editor.ui.controls.ControlBase;
 
 import blendhx.editor.presets.EditorCamera;
 import blendhx.editor.presets.GridFloor;
+import blendhx.editor.presets.TransformGizmo;
 
 import flash.events.IEventDispatcher;
 import flash.filesystem.File;
@@ -29,6 +30,7 @@ interface IModel extends IEventDispatcher
 	public var editModeSelectedEntity:IComposite;
 	public var editorCamera:EditorCamera;
 	public var gridFloor:IComposite;
+	public var transformGizmo:IComposite;
 	
 	public var sourceDirectory   :File;
 	public var casheDirectory    :File;

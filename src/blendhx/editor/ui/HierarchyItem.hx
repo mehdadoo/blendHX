@@ -183,7 +183,7 @@ class HierarchyItem extends UICompositeView implements IDragable
 		var event:HierarchyEvent = new HierarchyEvent( HierarchyEvent.SELECT );
 		event.entity = entity;
 		dispatchEvent( event );
-		event.dispose();
+		//event.dispose();
 		
 		var entityMenu:ContextMenu = new EntityContextMenu();
 		entityMenu.display(e.stageX, e.stageY);
@@ -203,6 +203,8 @@ class HierarchyItem extends UICompositeView implements IDragable
 				type = MESH;
 			case "[object Sound]":
 				type = SOUND;
+			case "[object Lamp]":
+				type = LAMP;
 			default:
 				type = TRANSFORM;
 		}

@@ -23,12 +23,14 @@ class EntityContextMenu extends ContextMenu
 		new ContextMenuButton("New Entity", 0, newEntity, this, 1, 1, ControlBase.ROUND_NONE, ImageButton.ADD);
 		new ContextMenuButton("Delete                         Del", 0, deleteSelected, this, 1, 1, ControlBase.ROUND_NONE, ImageButton.REMOVE);
 		new ContextMenuButton("Rename                      F2", 0, renameSelected, this, 1, 1);
+		new ContextMenuButton("Duplicate          Shift + D", 0, duplicateSelected, this, 1, 1);
 		
 		addUIComponent( new Seperator() );
 		
 		new ContextMenuButton("Add Camera", 0, addCamera, this);
 		new ContextMenuButton("Add MeshRenderer", 0, addMeshRenderer, this);
 		new ContextMenuButton("Add Sound", 0, addSound, this);
+		new ContextMenuButton("Add Lamp", 0, addLamp, this);
 		
 		addUIComponent( new Seperator() );
 			
@@ -43,6 +45,15 @@ class EntityContextMenu extends ContextMenu
 		
 		dispose();
 		
+	}
+	
+	private function duplicateSelected()
+	{
+		var e:HierarchyEvent = new HierarchyEvent(HierarchyEvent.DUPLICATE);
+		dispatchEvent(e);
+		//e.dispose();
+		
+		dispose();
 	}
 	
 	private function deleteSelected()
@@ -87,6 +98,16 @@ class EntityContextMenu extends ContextMenu
 	{
 		var e:ComponentEvent = new ComponentEvent(ComponentEvent.NEW);
 		e.sourceURL = "Sound";
+		dispatchEvent(e);
+		//e.dispose();
+		
+		dispose();
+	}
+	
+	private function addLamp()
+	{
+		var e:ComponentEvent = new ComponentEvent(ComponentEvent.NEW);
+		e.sourceURL = "Lamp";
 		dispatchEvent(e);
 		//e.dispose();
 		

@@ -13,7 +13,7 @@ class AssetsSelectCommand extends Command
 		
 		if(model.focusedControlBase != null)
 			model.focusedControlBase.unfocus();
-
+		
 		model.selectedFileItem = fileItemEvent.fileItem;
 		
 		super.execute();

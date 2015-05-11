@@ -77,15 +77,22 @@ class ControlBase extends UIComponent
 	private function initialize():Void{}
 	public function get_value():Dynamic{return value;}
 	public function set_value(param:Dynamic):Dynamic{value = param; return param;}
-	public function unfocus():Void{}
 	
+	public function unfocus():Void
+	{
+		flash.Lib.current.stage.focus = null;
+		
+		var e:ControlBaseEvent = new ControlBaseEvent( ControlBaseEvent.UN_FOCUS) ;
+		dispatchEvent( e );
+		//e.dispose();
+	}
 	
 	public function focus():Void
 	{
 		var e:ControlBaseEvent = new ControlBaseEvent( ControlBaseEvent.FOCUS) ;
 		e.control = this;
 		dispatchEvent( e );
-		e.dispose();
+		//e.dispose();
 	}
 	
 	override public function resize():Void

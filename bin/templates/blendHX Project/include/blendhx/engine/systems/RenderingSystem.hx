@@ -45,6 +45,7 @@ class RenderingSystem extends EventDispatcher implements IRenderingSystem
 	private function initShaderFallback()
     {
     	fallbackShader = new DefaultShader();
+		fallbackShader.color = 0xcccccc;
     	fallbackShader.create(ApplicationDomain.currentDomain);
     }
 	private function initCameraFallback()
@@ -99,7 +100,11 @@ class RenderingSystem extends EventDispatcher implements IRenderingSystem
     	var shader:Shader;
 		var meshRenderers:Array<MeshRenderer> = scene.meshRenderers;
     	var camera:Camera = scene.cameras[0];
+		var lamp:Transform = null;
 		
+		if(scene.lamps[0] != null)
+			lamp = scene.lamps[0].transform;
+			
 		if (camera == null)
 			camera = fallbackCamera;
 		
@@ -116,14 +121,18 @@ class RenderingSystem extends EventDispatcher implements IRenderingSystem
 		
 			//in case meshRenderer has no matrial, draw it with the fallback shader, else use the original shader
     		if (meshRenderer.material == null)
+			{
 				shader = fallbackShader;
+				if(lamp!=null)
+					fallbackShader.lamp = new flash.geom.Vector3D(lamp.x, lamp.y, lamp.z);
+			}
 			else
 				shader = meshRenderer.material.shader;		
 			
 			
     		shader.updateMatrix(transform.getMatrix(), camera.getViewProjection());
     		shader.bind(context3D, mesh.vertexBuffer);
-		
+
 			//try drawing the mesh using the original shader of the meshRenderer
     		try 
 			{
@@ -137,14 +146,6 @@ class RenderingSystem extends EventDispatcher implements IRenderingSystem
 					trace( e.message, 0xcc1111 );
 					shaderError = e.message;
 				}
-				
-				
-				
-    			/*shader.unbind(context3D);
-    			shader = fallbackShader;
-    			shader.updateMatrix(transform.getMatrix(), camera.getViewProjection());
-    			shader.bind(context3D, mesh.vertexBuffer);
-    			context3D.drawTriangles(mesh.indexBuffer);*/
     		};
 			shader.unbind(context3D);
     		

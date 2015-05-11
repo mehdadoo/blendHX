@@ -24,11 +24,15 @@ class NumberInput extends ControlBase
 	
 	private var editing:Bool;
 	
-
 	public static var ROUND_UP:Array<Float>   = [13, 13, 0 , 0 ];
 	public static var ROUND_DOWN:Array<Float> = [0 , 0 , 13, 13];
 	public static var ROUND_BOTH:Array<Float> = [20, 20, 20, 20];
 	public static var ROUND_NONE:Array<Float> = [0 , 0 , 0 , 0 ];
+	
+	
+	public var step:Float = 1.0;
+	public var min:Float = 0.0;
+	public var max:Float = 0.0;
 	
 	override public function initialize() 
 	{
@@ -116,14 +120,14 @@ class NumberInput extends ControlBase
 		if (!editing && e.localX <  20)
 		{
 			super.focus();
-			value --;
+			value -= step;
 			updateValue();
 			
 		}
 		else if (!editing && e.localX > _width - 20)
 		{
 			super.focus();
-			value ++;
+			value += step;
 			updateValue();
 			
 		}
@@ -141,7 +145,10 @@ class NumberInput extends ControlBase
 	{
 		if(editing)
 			return null;
-			
+		
+		if( min != max)
+			param = Math.min(Math.max(param, min), max);
+
 		value = param;
 		
 		if(label != null)
@@ -176,6 +183,9 @@ class NumberInput extends ControlBase
 		updateValue();
 		redrawBox(normal);
 		label.selectable = false;
+		
+		
+		super.unfocus();
 	}
 	
 	

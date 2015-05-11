@@ -12,6 +12,7 @@ class Sound extends Component
 {
 	private var sound:flash.media.Sound;
 	private var soundChannel:SoundChannel;
+	private var soundTransform:SoundTransform;
 	private var pausePosition:Float = 0;
 	private var soundStatus:UInt;
 	
@@ -20,7 +21,8 @@ class Sound extends Component
 	public var playOnAwake:Bool = true;
 	public var loop:Bool = false;
 	public var is2D:Bool = true;
-	public var volume:Float = 1.0;
+	@:isVar public var volume(get, set):Float = 1.0;
+
 	
 	public function new()
 	{
@@ -53,6 +55,7 @@ class Sound extends Component
 		sound = new flash.media.Sound();
 		soundAsset.bytes.position = 0;
 		sound.loadCompressedDataFromByteArray( soundAsset.bytes, soundAsset.bytes.length );
+		soundTransform = new SoundTransform(volume, 0.0);
 		
 		if( playOnAwake )
 			play();
@@ -97,6 +100,7 @@ class Sound extends Component
 		soundStatus = SoundStatus.Play;
 		
 		soundChannel = sound.play( pausePosition );
+		soundChannel.soundTransform = soundTransform;
 		soundChannel.addEventListener( Event.SOUND_COMPLETE, soundCompleteHandler );
 	}
 	public function pause():Void
@@ -123,12 +127,31 @@ class Sound extends Component
 		soundChannel.removeEventListener( Event.SOUND_COMPLETE, soundCompleteHandler );
 		soundChannel = null;
 	}
+	
 	private function soundCompleteHandler(_):Void 
 	{
 		stop();
 		
 		if( loop )
 			play();
+	}
+	
+	public function get_volume():Float
+	{
+		return volume;
+	}
+	
+	public function set_volume(param:Float):Float
+	{
+		volume = param;
+
+		if( soundTransform != null)
+		{
+			soundTransform.volume = volume;
+			soundChannel.soundTransform = soundTransform;
+		}
+		
+		return param;
 	}
 	
 }

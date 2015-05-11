@@ -16,7 +16,7 @@ class Mesh extends EventDispatcher implements IAsset
 	
 	private var meshIndexData:Vector<UInt>;
 	private var meshVertexData:Vector<Float>;
-	public  var numVertexAttributes:UInt = 5;
+	public  var numVertexAttributes:UInt = 8;
 	public  var triangles:UInt = 0;
 	public  var vertexBuffer:VertexBuffer3D;
 	public  var indexBuffer:IndexBuffer3D;

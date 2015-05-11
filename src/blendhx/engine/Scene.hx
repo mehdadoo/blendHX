@@ -7,6 +7,7 @@ import blendhx.engine.events.ScriptEvent;
 import blendhx.engine.systems.RenderingSystem;
 import blendhx.engine.components.MeshRenderer;
 import blendhx.engine.components.Camera;
+import blendhx.engine.components.Lamp;
 import blendhx.engine.components.IComponent;
 import blendhx.engine.components.IComposite;
 import blendhx.engine.components.Entity;
@@ -25,6 +26,7 @@ class Scene extends Entity
 	//quick access to some components of the entities
 	public var meshRenderers:Array<MeshRenderer> = new Array<MeshRenderer>();
 	public var cameras:Array<Camera> = new Array<Camera>();
+	public var lamps:Array<Lamp> = new Array<Lamp>();
 	public var assets:Assets;
 
 	//the entities and the camera events should be listened to
@@ -98,11 +100,14 @@ class Scene extends Entity
 		
 		var isMeshRenderer:Bool = untyped __is__(event.target, MeshRenderer);
 		var isCamera:Bool = untyped __is__(event.target, Camera);
+		var isLamp:Bool = untyped __is__(event.target, Lamp);
 		
 		if(isMeshRenderer)
 			registerMeshRenderer( cast event.target );
 		else if( isCamera )
 			registerCamera( cast event.target );
+		else if( isLamp )
+			registerLamp( cast event.target );
 	}
 	
 	//if the component is meshRenderer or a camera, remove it from it's corresponding list
@@ -111,12 +116,14 @@ class Scene extends Entity
 		
 		var isMeshRenderer:Bool = untyped __is__(event.target, MeshRenderer);
 		var isCamera:Bool = untyped __is__(event.target, Camera);
+		var isLamp:Bool = untyped __is__(event.target, Lamp);
 
 		if(isMeshRenderer)
 			unregisterMeshRenderer( cast event.target );
 		else if( isCamera )
 			unregisterCamera( cast event.target );
-
+		else if( isLamp )
+			unregisterLamp( cast event.target );
 	}
 	
 	private function registerMeshRenderer(meshRenderer:MeshRenderer)
@@ -158,4 +165,23 @@ class Scene extends Entity
 			if (c == camera) 
 				cameras.remove(c);
     }
+	
+	private function registerLamp(lamp:Lamp)
+    {
+		//if the lamp already exists, do not re register it, else add it to the mesh renderers array
+    	for (m in lamps) 
+			if (m == lamp)
+				return;
+		lamps.push(lamp);
+		
+    }
+
+    private function unregisterLamp(lamp:Lamp)
+    {
+    	for (m in lamps)
+			if (m == lamp) 
+				lamps.remove(m);
+				
+    }
+	
 }

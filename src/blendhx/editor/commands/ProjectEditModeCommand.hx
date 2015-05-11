@@ -19,12 +19,14 @@ class ProjectEditModeCommand extends Command
 		
 		model.scene.addChild( model.editorCamera );
 		model.scene.addChild( model.gridFloor);
+		model.scene.addChild( model.transformGizmo);
 		model.savedEntities = null;
 		model.playMode = false;
 		
 		flash.system.System.pauseForGCIfCollectionImminent();
 		
 		model.selectedEntity = model.editModeSelectedEntity;
+		model.transformGizmo.transform = model.selectedEntity.transform;
 		
 		CommandWithUndo.locked = false;
 		

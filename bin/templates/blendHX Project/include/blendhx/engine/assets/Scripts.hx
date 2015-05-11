@@ -100,7 +100,7 @@ class Scripts extends EventDispatcher
 		{
 			shader = new DefaultShader();
 			shader.create( ApplicationDomain.currentDomain );
-			trace( className +" Not found");
+			
 		}
 		else
 		{

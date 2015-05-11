@@ -14,7 +14,10 @@ class EntitySelectCommand extends CommandWithUndo
 		
 		values.set("selectedEntity", model.selectedEntity);
 		
+		
+		
 		model.selectedEntity = hierarchyEvent.entity;
+		model.transformGizmo.transform = model.selectedEntity.transform;
 			
 		super.execute();
 	}
@@ -23,6 +26,8 @@ class EntitySelectCommand extends CommandWithUndo
 	{
 		values.set("entity", model.selectedEntity);
 		model.selectedEntity = values.get("selectedEntity");
+		model.transformGizmo.transform = model.selectedEntity.transform;
+		
 		super.undo();
 	}
 	
@@ -30,6 +35,7 @@ class EntitySelectCommand extends CommandWithUndo
 	{
 		var hierarchyEvent:HierarchyEvent = cast event;
 		model.selectedEntity = values.get("entity");
+		model.transformGizmo.transform = model.selectedEntity.transform;
 
 		super.redo();
 	}

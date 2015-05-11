@@ -4,7 +4,7 @@ import blendhx.engine.loaders.ILoader;
 //import blendhx.engine.loaders.MeshLoader;
 import blendhx.engine.assets.Mesh;
 
-import blendhx.editor.data.ObjParser;
+import blendhx.editor.loaders.Stage3dObjParser;
 import blendhx.editor.helpers.Utils;
 import blendhx.editor.helpers.Color;
 
@@ -46,17 +46,16 @@ class AssetsImportMeshCommand extends Command
 		
 		file.copyTo( sourceFolderFile );
 		
-		var bytes:ByteArray = new ByteArray();
+		var objString:String;
 		
 		var stream = new FileStream();
 		stream.open(file, FileMode.READ);
-		stream.readBytes( bytes);
+		objString = stream.readUTFBytes( stream.bytesAvailable  );
 		stream.close();
 		
-		var myObjMesh:ObjParser = new ObjParser(bytes, 1);
+		var myObjMesh:Stage3dObjParser = new Stage3dObjParser(objString, 1);
 		
-		var mesh:Mesh = new Mesh(myObjMesh.GetIndexData(), myObjMesh.GetVertexData(true, false, false) );
-		
+		var mesh:Mesh = new Mesh(myObjMesh.GetIndexData(), myObjMesh.GetVertexData(true, true, false) );
 		//create the loader used by the assets library
 		var sourceURL:String = Utils.getLocalURL(model.sourceDirectory, sourceFolderFile );
 		var id:UInt = model.assets.getNewID();
