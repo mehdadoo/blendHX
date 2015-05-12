@@ -46,8 +46,8 @@ class Utils
 		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.components.SoundStatus", blendhx.engine.components.SoundStatus);
 		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.components.Lamp", blendhx.engine.components.Lamp);
 		 
-		
-		haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.presets.GridFloorMesh", blendhx.engine.presets.GridFloorMesh);
+		//haxe.remoting.AMFConnection.registerClassAlias("blendhx.engine.presets.GridFloorMesh", blendhx.engine.presets.GridFloorMesh);
+		haxe.remoting.AMFConnection.registerClassAlias("blendhx.editor.presets.GridFloorMesh", blendhx.editor.presets.GridFloorMesh);
 	}
 	
 	public static function registerScriptClassAliases(domain:ApplicationDomain):Void

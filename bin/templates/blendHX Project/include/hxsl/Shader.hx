@@ -658,7 +658,6 @@ class Shader {
 	public function updateMatrix(modelMatrix:Matrix3D, cameraMatrix:Matrix3D){}
 	public function updateProperties(values:Array<Dynamic>){}
 	public function initProperties(){}
-	public function updateLight(values:Array<Float>){}
 	public var editorProperties:Array<String> = [];
 
 }

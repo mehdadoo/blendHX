@@ -5,6 +5,8 @@ import blendhx.engine.components.Camera;
 import blendhx.engine.components.Transform;
 import blendhx.engine.components.MeshRenderer;
 import blendhx.engine.assets.Mesh;
+import blendhx.engine.assets.Material;
+import blendhx.engine.assets.Assets;
 import blendhx.engine.presets.DefaultShader;
 import blendhx.engine.Scene;
 import blendhx.engine.Viewport;
@@ -35,6 +37,7 @@ class RenderingSystem extends EventDispatcher implements IRenderingSystem
 	private var fallbackCamera:Camera;
     private var shaderError:String;
 	
+	
 	public function new(scene:Scene, viewport:Viewport)
 	{
 		super();
@@ -45,7 +48,6 @@ class RenderingSystem extends EventDispatcher implements IRenderingSystem
 	private function initShaderFallback()
     {
     	fallbackShader = new DefaultShader();
-		fallbackShader.color = 0xcccccc;
     	fallbackShader.create(ApplicationDomain.currentDomain);
     }
 	private function initCameraFallback()
@@ -100,59 +102,58 @@ class RenderingSystem extends EventDispatcher implements IRenderingSystem
     	var shader:Shader;
 		var meshRenderers:Array<MeshRenderer> = scene.meshRenderers;
     	var camera:Camera = scene.cameras[0];
-		var lamp:Transform = null;
+		var cameraMesh:Mesh = scene.assets.get(Assets.MESH, scene.assets.getID("editor/camera.obj") );
+		var lampMesh:Mesh = scene.assets.get(Assets.MESH, scene.assets.getID("editor/lamp.obj") );
+		var gizmoMaterial:Material = scene.assets.get(Assets.MATERIAL, scene.assets.getID("editor/gizmoBlack.mat") );
 		
-		if(scene.lamps[0] != null)
-			lamp = scene.lamps[0].transform;
-			
 		if (camera == null)
 			camera = fallbackCamera;
 		
     	for (meshRenderer in meshRenderers) 
-		{
-			
-    		transform = meshRenderer.transform;
-    		mesh = meshRenderer.mesh;
-		
-			//if there are no valid mesh in the meshRenderer, or disabled meshRenderer skip this meshRenderer
-    		if (mesh == null) continue;
-		
-		
-		
-			//in case meshRenderer has no matrial, draw it with the fallback shader, else use the original shader
-    		if (meshRenderer.material == null)
-			{
-				shader = fallbackShader;
-				if(lamp!=null)
-					fallbackShader.lamp = new flash.geom.Vector3D(lamp.x, lamp.y, lamp.z);
-			}
-			else
-				shader = meshRenderer.material.shader;		
-			
-			
-    		shader.updateMatrix(transform.getMatrix(), camera.getViewProjection());
-    		shader.bind(context3D, mesh.vertexBuffer);
-
-			//try drawing the mesh using the original shader of the meshRenderer
-    		try 
-			{
-    			context3D.drawTriangles(mesh.indexBuffer);
-    		} 
-			//in case there is a problem with the shader, redraw it with the fallback shader
-			catch(e:Dynamic) 
-			{
-    			if (shaderError != e.message)
-				{
-					trace( e.message, 0xcc1111 );
-					shaderError = e.message;
-				}
-    		};
-			shader.unbind(context3D);
-    		
-    	};
+			render(meshRenderer.mesh, meshRenderer.material, meshRenderer.transform, camera);
 	
+		for(i in 1...scene.cameras.length)
+			render(cameraMesh, gizmoMaterial, scene.cameras[i].transform, camera);
+		
+		for(lamp in scene.lamps)
+			render(lampMesh, gizmoMaterial, lamp.transform, camera);
+		
     	context3D.present();
     }
+	
+	private function render( mesh:Mesh, material:Material, transform:Transform, camera:Camera)
+	{
+		//if there are no valid mesh in the meshRenderer, or disabled meshRenderer skip this meshRenderer
+		if (mesh == null) return;
+		
+		var shader:Shader;
+		
+		//in case meshRenderer has no matrial, draw it with the fallback shader, else use the original shader
+		if (material == null)
+			shader = fallbackShader;
+		else
+			shader = material.shader;		
+			
+			
+		shader.updateMatrix(transform.getMatrix(), camera.getViewProjection());
+		shader.bind(context3D, mesh.vertexBuffer);
+
+		//try drawing the mesh using the original shader of the meshRenderer
+		try 
+		{
+			context3D.drawTriangles(mesh.indexBuffer);
+		} 
+		//in case there is a problem with the shader, redraw it with the fallback shader
+		catch(e:Dynamic) 
+		{
+			if (shaderError != e.message)
+			{
+				trace( e.message, 0xcc1111 );
+				shaderError = e.message;
+			}
+		};
+		shader.unbind(context3D);
+	}
 	
     
 	//resize stage3D

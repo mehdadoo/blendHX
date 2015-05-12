@@ -4,7 +4,10 @@ import blendhx.engine.components.Component;
 import blendhx.engine.events.Event;
 import blendhx.engine.events.ProgressEvent;
 import blendhx.engine.events.EventDispatcher;
-import blendhx.engine.presets.GridFloorMesh;
+
+#if editor
+import blendhx.editor.presets.GridFloorMesh;
+#end
 
 import hxsl.Shader;
 
@@ -38,7 +41,10 @@ class Assets extends EventDispatcher implements IAsset
 	{	
 		assetsArray = [textures, materials, meshes, components, sounds];
 		scripts = new Scripts();
+		
+		#if editor
 		meshes.push( new GridFloorMesh() );
+		#end
 		
 		super();
 	}

@@ -8,7 +8,7 @@ import flash.geom.Matrix3D;
 
 class Camera extends Component
 {
-	private var projection:PerspectiveMatrix3D;
+	public var projection:PerspectiveMatrix3D;
 	public var fov:Float = 60;
 	public var near:Float = 0.1;
 	public var far:Float = 1000;

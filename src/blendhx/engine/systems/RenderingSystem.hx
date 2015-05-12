@@ -48,7 +48,6 @@ class RenderingSystem extends EventDispatcher implements IRenderingSystem
 	private function initShaderFallback()
     {
     	fallbackShader = new DefaultShader();
-		fallbackShader.color = 0xcccccc;
     	fallbackShader.create(ApplicationDomain.currentDomain);
     }
 	private function initCameraFallback()
@@ -103,14 +102,10 @@ class RenderingSystem extends EventDispatcher implements IRenderingSystem
     	var shader:Shader;
 		var meshRenderers:Array<MeshRenderer> = scene.meshRenderers;
     	var camera:Camera = scene.cameras[0];
-		var lamp:Transform = null;
 		var cameraMesh:Mesh = scene.assets.get(Assets.MESH, scene.assets.getID("editor/camera.obj") );
 		var lampMesh:Mesh = scene.assets.get(Assets.MESH, scene.assets.getID("editor/lamp.obj") );
 		var gizmoMaterial:Material = scene.assets.get(Assets.MATERIAL, scene.assets.getID("editor/gizmoBlack.mat") );
 		
-		if(scene.lamps[0] != null)
-			lamp = scene.lamps[0].transform;
-			
 		if (camera == null)
 			camera = fallbackCamera;
 		
@@ -135,11 +130,7 @@ class RenderingSystem extends EventDispatcher implements IRenderingSystem
 		
 		//in case meshRenderer has no matrial, draw it with the fallback shader, else use the original shader
 		if (material == null)
-		{
 			shader = fallbackShader;
-			//if(lamp!=null)
-				//fallbackShader.lamp = new flash.geom.Vector3D(lamp.x, lamp.y, lamp.z);
-		}
 		else
 			shader = material.shader;		
 			

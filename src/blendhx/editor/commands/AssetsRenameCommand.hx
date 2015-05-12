@@ -58,8 +58,8 @@ class AssetsRenameCommand extends Command
 		var fs:FileStream = new FileStream();
 		fs.open( file, FileMode.READ );
 		var scriptString:String = fs.readUTFBytes( fs.bytesAvailable );
-		var oldClassName:String = file.name.split( ".")[0]; 
-		var newClassName:String = renamedFile.name.split( ".")[0]; 
+		var oldClassName:String = "class " + file.name.split( ".")[0]; 
+		var newClassName:String = "class " + renamedFile.name.split( ".")[0]; 
 		scriptString = StringTools.replace( scriptString, oldClassName, newClassName);
 		fs.close();
 		
