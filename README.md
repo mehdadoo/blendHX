@@ -3,7 +3,7 @@ Created with Haxe, a game engine and IDE on top of AIR capabilities.
 
 This project is being actively developed.
 
-![alt text](http://igloo.ir/blendhx.png)
+![alt text](http://igloo.ir/wp-content/uploads/2015/01/blendhx-1024x583.png)
 Get the latest build:
 https://raw.githubusercontent.com/mehdadoo/blendHX/master/bin/blendHX.exe
 
